@@ -1,0 +1,412 @@
+<html>
+<head>
+    <title>LinMen</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="MaxWidth my-5">
+    <div class="d-flex justify-content-start">
+
+        <div class="SelectFormOne mr-4 SelectFormField">
+            <div class="SelectFormHeder">
+                <p class="px-3 py-4">Izvēlieties vai aizpildiet norādītos laukus</p>
+            </div>
+
+            <div class="px-3">
+                <p><b>Krekla siluets</b></p>
+
+                <input type="checkbox" id="1" name="group1[]"/>
+                <label for="1">
+                <div class="choices">Krekla siluets</div>
+                </label>
+
+                <input type="checkbox" id="2" name="group1[]"/>
+                <label for="2">
+                <div class="choices">Btīvs</div>
+                </label>
+
+            </div>
+
+            <div class="Line my-4"></div>
+
+            <div class="px-3">
+                <p><b>Pieddurknes</b></p>
+
+                <input type="checkbox" id="3" name="group2[]"/>
+                <label for="3">
+                <div class="choices" onclick="check1()">Garās</div>
+                </label>
+
+                <input type="checkbox" id="4" name="group2[]"/>
+                <label for="4">
+                <div class="choices" onclick="check2()">Pusgarās</div>
+                </label>
+
+                <input type="checkbox" id="5" name="group2[]"/>
+                <label for="5">
+                <div class="choices" onclick="check3()">Īsās</div>
+                </label>
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="Hidden">
+                <div class="Line my-4"></div>
+
+                <div class="px-3">
+                    <p><b>Garās</b></p>
+
+                    <input type="checkbox" id="41" name="group41[]"/>
+                    <label for="41">
+                    <div class="choices" onclick="check4()">Ar manžetēm</div>
+                    </label>
+
+                    <input type="checkbox" id="42" name="group41[]"/>
+                    <label for="42">
+                    <div class="choices" onclick="check5()">Klasiskas</div>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <div class="Hidden Hidden2">
+                <div class="Line my-4"></div>
+
+                <div class="px-3">
+                    <p><b>Ar manžetēm</b></p>
+
+                    <input type="checkbox" id="43" name="group33[]"/>
+                    <label for="43">
+                    <div class="choices" onclick="check6()">Klasiskas</div>
+                    </label>
+
+                    <input type="checkbox" id="44" name="group33[]"/>
+                    <label for="44">
+                    <div class="choices" onclick="check7()">Ar detaļu</div>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <div class="Hidden Hidden3">
+                <div class="Line my-4"></div>
+
+                <div class="px-3">
+                    <p><b>Pusgarās</b></p>
+
+                    <input type="checkbox" id="45" name="group34[]"/>
+                    <label for="45">
+                    <div class="choices" onclick="check6()">Klasiskas</div>
+                    </label>
+
+                    <input type="checkbox" id="46" name="group34[]"/>
+                    <label for="46">
+                    <div class="choices" onclick="check7()">Ar pogājumu</div>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <div class="Hidden Hidden4">
+                <div class="Line my-4"></div>
+
+                <div class="px-3">
+                    <p><b>Īsās</b></p>
+
+                    <input type="checkbox" id="47" name="group34[]"/>
+                    <label for="47">
+                    <div class="choices" onclick="check12()">Klasiskas</div>
+                    </label>
+
+                    <input type="checkbox" id="48" name="group34[]"/>
+                    <label for="48">
+                    <div class="choices" onclick="check11()">Ar atloku</div>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <div class="Hidden Hidden5">
+                <div class="Line my-4"></div>
+
+                <div class="px-3">
+                    <p><b>Ar atloku</b></p>
+
+                    <input type="checkbox" id="49" name="group[]"/>
+                    <label for="49">
+                    <div class="choices" >Ar pogu</div>
+                    </label>
+
+                    <input type="checkbox" id="50" name="group[]"/>
+                    <label for="50">
+                    <div class="choices" onclick="check11()">Bez pogas</div>
+                    </label>
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="Line my-4"></div>
+
+            <div class="px-3">
+                <p><b>Apkakle</b></p>
+
+                <input type="checkbox" id="6" name="group3[]"/>
+                <label for="6">
+                <div class="choices">Ar apkakli</div>
+                </label>
+
+                <input type="checkbox" id="7" name="group3[]"/>
+                <label for="7">
+                <div class="choices">Bez apkakles</div>
+                </label>
+
+                <input type="checkbox" id="8" name="group3[]"/>
+                <label for="8">
+                <div class="choices">Ar izgriezumu</div>
+                </label>
+
+            </div>
+
+            <div class="Line my-4"></div>
+
+            <div class="px-3">
+                <p><b>Apakšmala</b></p>
+
+                <input type="checkbox" id="9" name="group4[]"/>
+                <label for="9">
+                <div class="choices">Taisna</div>
+                </label>
+
+                <input type="checkbox" id="10" name="group4[]"/>
+                <label for="10">
+                <div class="choices">Izliekta</div>
+                </label>
+
+            </div>
+
+            <div class="Line my-4"></div>
+
+            <div class="px-3">
+                <p><b>Kabatas</b></p>
+
+                <input type="checkbox" id="11" name="group5[]"/>
+                <label for="11">
+                <div class="choices">Bez kabatām</div>
+                </label>
+
+                <input type="checkbox" id="12" name="group5[]"/>
+                <label for="12">
+                <div class="choices">Ar kabatām</div>
+                </label>
+
+            </div>
+
+            <div class="Line my-4"></div>
+
+            <div class="px-3">
+                <p><b>Standarta izmērs</b></p>
+
+                <input type="checkbox" id="13" name="group6[]"/>
+                <label for="13">
+                <div class="choices">Xs</div>
+                </label>
+
+                <input type="checkbox" id="14" name="group6[]"/>
+                <label for="14">
+                <div class="choices">S</div>
+                </label>
+
+                <input type="checkbox" id="15" name="group6[]"/>
+                <label for="15">
+                <div class="choices">M</div>
+                </label>
+
+                <input type="checkbox" id="16" name="group6[]"/>
+                <label for="16">
+                <div class="choices">L</div>
+                </label>
+
+                <input type="checkbox" id="17" name="group6[]"/>
+                <label for="17">
+                <div class="choices">XL</div>
+                </label>
+
+                <input type="checkbox" id="18" name="group6[]"/>
+                <label for="18">
+                <div class="choices">2XL</div>
+                </label>
+
+                <input type="checkbox" id="19" name="group6[]"/>
+                <label for="19">
+                <div class="choices">3XL</div>
+                </label>
+
+                <input type="checkbox" id="20" name="group6[]"/>
+                <label for="20">
+                <div class="choices">Cits</div>
+                </label>
+
+            </div>
+
+            <div class="Line my-4"></div>
+
+            <div class="px-3">
+                <p><b>Individuāls izmērs</b></p>
+
+                <input type="checkbox" id="21" name="group7[]"/>
+                <label for="21">
+                <div class="choices">Krūšu apkārtmērs</div>
+                </label>
+
+                <input type="checkbox" id="22" name="group7[]"/>
+                <label for="22">
+                <div class="choices">Auguma garums</div>
+                </label>
+
+                <input type="checkbox" id="23" name="group7[]"/>
+                <label for="23">
+                <div class="choices">Kakla apkārtmērs</div>
+                </label>
+
+            </div>
+
+            <div class="Line my-4"></div>
+
+            <div class="px-3">
+                <p><b>Auguma īpatnības</b></p>
+
+                <input type="checkbox" id="24" name="group8[]"/>
+                <label for="24">
+                <div class="choices">Muskuļota miesasbūve</div>
+                </label>
+
+                <input type="checkbox" id="25" name="group8[]"/>
+                <label for="25">
+                <div class="choices">"Alus vēderiņš"</div>
+                </label>
+
+                <input type="checkbox" id="26" name="group8[]"/>
+                <label for="26">
+                <div class="choices">Sākumpusi stāja</div>
+                </label>
+
+                <input type="checkbox" id="27" name="group8[]"/>
+                <label for="27">
+                <div class="choices">Izliekta stāja</div>
+                </label>
+
+                <input type="checkbox" id="28" name="group8[]"/>
+                <label for="28">
+                <div class="choices">Cits variants</div>
+                </label>
+
+            </div>
+
+            <div class="Line my-4"></div>
+
+            <div class="px-3">
+                <p><b>Krāsa</b></p>
+
+                <input type="checkbox" name="group8[]"/>
+                <label>
+                <div class="CoolorO">&nbsp;</div>
+                </label>
+
+                <input type="checkbox" name="group8[]"/>
+                <label>
+                <div class="CoolorS">&nbsp; </div>
+                </label>
+
+                <input type="checkbox" id="26" name="group8[]"/>
+                <label>
+                <div class="CoolorT">&nbsp;</div>
+                </label>
+
+                <input type="checkbox" name="group8[]"/>
+                <label>
+                <div class="CoolorF">&nbsp;</div>
+                </label>
+
+
+
+            </div>
+            
+            <div class="Line my-4"></div>
+
+            <div class="px-3">
+                <p><b>Aizpildiet laukus</b></p>
+
+                <input type="checkbox" id="24" name="group8[]"/>
+                <label for="24">
+                <div class="choices">Vārds</div>
+                </label>
+
+                <input type="checkbox" id="25" name="group8[]"/>
+                <label for="25">
+                <div class="choices">"Telefona numurs"</div>
+                </label>
+
+                <input type="checkbox" id="26" name="group8[]"/>
+                <label for="26">
+                <div class="choices">E-pasts</div>
+                </label>
+
+            </div>
+
+            <div class="SelectFormHeder mt-5">
+                <div class="d-flex justify-content-center px-3 py-4 mb-0">
+                    <button class="SendButton">Sūtīt</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="SelectForm">
+
+        </div>
+
+
+
+        
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="script.js"></script>
+
+<script>
+    $("input:checkbox").on('click', function() {
+    var $box = $(this);
+    if ($box.is(":checked")) {
+      var group = "input:checkbox[name='" + $box.attr("name") + "']";
+      $(group).prop("checked", false);
+      $box.prop("checked", true);
+    } else {
+      $box.prop("checked", false);
+    }
+  
+  });
+</script>
+</body>
+</html>
