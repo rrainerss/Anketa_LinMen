@@ -43,6 +43,7 @@
 
 /*#region Form half*/
     .FormHalf{
+
     }
     .FormHeader{
         background-color: var(--grayblue);
@@ -50,92 +51,69 @@
         font-size: 1.6rem;
         font-weight: 500;
     }
-    .FormSection
-    {
+    .FormSection{
         border: solid 1px var(--darkgray);
         border-top: 0;
     }
+    .CheckboxDiv{
+        background-color: #ffffff00;
+        padding: 0.4rem 1rem;
+        display: inline-block;
+        cursor: pointer;
+        border: 1px solid var(--darkgray);
+        color: var(--darkgray);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .FormSection input{
+        display: none
+    }
+    .FormSection input:checked + label > .CheckboxDiv{
+        background-color: var(--grayblue);
+        color: var(--offwhite);
+    }
+    .SendButton{
+        font-size: 1rem;
+        border: none;
+        color: var(--grayblue);
+        background-color: white;
+        padding: 0.8rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .ColorCheckboxDiv1{
+        background-color: rgba(145, 167, 201, 0.808);
+        padding: 0.4rem 1rem;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .ColorCheckboxDiv2{
+        background-color: rgb(87, 117, 161);
+        padding: 0.4rem 1rem;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .ColorCheckboxDiv3{
+        background-color: rgb(61, 95, 61);
+        padding: 0.4rem 1rem;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .ColorCheckboxDiv4{
+        background-color: rgb(0, 0, 0);
+        padding: 0.4rem 1rem;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .Hidden{
+        display: none;
+        background-color: aqua;
+    }
 /*#endregion*/
-
-
-
-
-
-
-
-
-
-.Line{
-    border: solid 1px var(--darkgray);
-}
-
-
-
-.choices
-{
-    background-color: #ffffff00;
-    padding: 0.4rem 1rem;
-    display: inline-block;
-    cursor: pointer;
-    border: 1px solid var(--darkgray);
-    color: var(--darkgray);
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-     user-select: none;
-}
-  
-  input{
-    display: none
-  }
-  input:checked+label>.choices {
-    background-color: var(--grayblue);
-    color: var(--offwhite);
-  }
-
-.SendButton{
-      border: none;
-      color: var(--grayblue);
-      background-color: white;
-      padding: 0.8rem;
-      padding-left: 2rem;
-      padding-right: 2rem;
-  }
-
-.CoolorO{
-    background-color: rgba(145, 167, 201, 0.808);
-    padding: 0.4rem 1rem;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.CoolorS{
-    background-color: rgb(87, 117, 161);
-    padding: 0.4rem 1rem;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.CoolorT{
-    background-color: rgb(61, 95, 61);
-    padding: 0.4rem 1rem;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.CoolorF{
-    background-color: rgb(0, 0, 0);
-    padding: 0.4rem 1rem;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.Hidden{
-    display: none;
-    background-color: aqua;
-}
 
 
 .ImageHalf
