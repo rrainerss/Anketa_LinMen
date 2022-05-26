@@ -1,45 +1,69 @@
 /*#region General styles and links*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    :root
-    {
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');    
+    :root{
         --darkergray: #3f3f3f;
         --darkgray: #8d8d8d54;
 
-        --bg: #f6f7f6;
-        --bluex:#7083ad;
-        --dg: rgba(195, 195, 212, 0.123);
+        --offwhite: #fdfdfd;
+        --grayblue:#60768b;
+        --darkgrayblue: rgba(195, 195, 212, 0.123);
     }
-    *
-    {
+    *{
         box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Montserrat', sans-serif;
     }
+    .MaxWidth{
+        padding: 0 20px 0 20px;
+        max-width: 1240px;
+        margin: auto;
+    }
+    @media only screen and (max-width: 767px){
+        .PageContainer{
+            gap: 0;
+        }
+        .FormHalf{
+            width: 100%;
+        }
+        .ImageHalf{
+            width: 100%;
+        }
+    }
+    @media only screen and (min-width: 768px){
+        .PageContainer{
+            column-gap: 20px;
+        }
+        .FormHalf{
+            width: calc(50% - 10px);
+        }
+        .ImageHalf{
+            width: calc(50% - 10px);
+        }
+    }
+/*#endregion*/
+
+/*#region Form half*/
+    .FormHalf{
+    }
+    .FormHeader{
+        background-color: var(--grayblue);
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+    .FormSection
+    {
+        border: solid 1px var(--darkgray);
+        border-top: 0;
+    }
+/*#endregion*/
 
 
 
-.SelectForm{
-    border: solid 1px var(--green);
-    padding: 20vw;
-}
 
-.SelectFormOne{
-    width: 40%;
-    border: solid 1px var(--darkgray);
-}
 
-.MaxWidth{
-    padding: 0 2.5rem 0 2.5rem;
-}
 
-.SelectFormHeder{
-    background-color: var(--bluex);
-    color: var(--bg);
 
-}
 
-.SelectFormField{
-    background-color: var(--dg);
-}
 
 .Line{
     border: solid 1px var(--darkgray);
@@ -47,26 +71,33 @@
 
 
 
-.choices {
+.choices
+{
     background-color: #ffffff00;
     padding: 0.4rem 1rem;
     display: inline-block;
     cursor: pointer;
     border: 1px solid var(--darkgray);
     color: var(--darkgray);
-  }
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
   
   input{
     display: none
   }
   input:checked+label>.choices {
-    background-color: var(--bluex);
-    color: var(--bg);
+    background-color: var(--grayblue);
+    color: var(--offwhite);
   }
 
 .SendButton{
       border: none;
-      color: var(--bluex);
+      color: var(--grayblue);
       background-color: white;
       padding: 0.8rem;
       padding-left: 2rem;
@@ -104,4 +135,10 @@
 .Hidden{
     display: none;
     background-color: aqua;
+}
+
+
+.ImageHalf
+{
+    background-color: var(--grayblue);
 }
