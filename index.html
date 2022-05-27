@@ -16,54 +16,62 @@
                 <p class="px-4 py-4 mb-0">Izvēlieties vai aizpildiet norādītos laukus</p>
             </div>
 
-            <div class="FormSection px-4 py-3">
+            <div class="FormSection FormGroup0 px-4 py-3">
                 <p><b>Krekla siluets</b></p>
 
-                <input type="checkbox" id="1" name="group1[]"/>
-                <label for="1">
-                    <div class="CheckboxDiv">Pieguļošs</div>
+                <input type="checkbox" id="Group0_0" name="CheckboxGroup0"/>
+                <label for="Group0_0">
+                    <div class="CheckboxDiv" onclick="">Pieguļošs</div>
                 </label>
 
-                <input type="checkbox" id="2" name="group1[]"/>
-                <label for="2">
-                    <div class="CheckboxDiv">Brīvs</div>
+                <input type="checkbox" id="Group0_1" name="CheckboxGroup0"/>
+                <label for="Group0_1">
+                    <div class="CheckboxDiv" onclick="">Brīvs</div>
                 </label>
             </div>
 
-            <div class="FormSection px-4 py-3">
+
+            <!--Ideja-->
+            <!--Padod vairākus ciparus uz funkciju, pirmais piemēram grupas nr, otrais grupai kura jāparāda-->
+            <!--pirmo izmanto lai paslēptu pārējās opcijas kuras var iegūt no tās pašas sākotnējās grupas-->
+            <!--Pēc idejas visam jāsaiet vienā funkcijā-->
+
+            <div class="FormSection FormGroup1 px-4 py-3">
                 <p><b>Piedurknes</b></p>
 
-                <input type="checkbox" id="3" name="group2[]"/>
-                <label for="3">
-                    <div class="CheckboxDiv" onclick="check1()">Garās</div>
+                <input type="checkbox" data-checked="false" data-target="FormGroup2" id="Group1_0" name="CheckboxGroup1"/>
+                <label for="Group1_0">
+                    <div class="CheckboxDiv" onclick="Section2(1, 0, 2);">Garās</div>
                 </label>
 
-                <input type="checkbox" id="4" name="group2[]"/>
-                <label for="4">
-                    <div class="CheckboxDiv" onclick="check2()">Pusgarās</div>
+                <input type="checkbox" data-checked="false" data-target="FormGroup0" id="Group1_1" name="CheckboxGroup1"/>
+                <label for="Group1_1">
+                    <div class="CheckboxDiv" onclick="Section2();">Pusgarās</div>
                 </label>
 
-                <input type="checkbox" id="5" name="group2[]"/>
-                <label for="5">
-                    <div class="CheckboxDiv" onclick="check3()">Īsās</div>
+                <input type="checkbox" data-checked="false" data-target="FormGroup0" id="Group1_2" name="CheckboxGroup1"/>
+                <label for="Group1_2">
+                    <div class="CheckboxDiv" onclick="Section2();">Īsās</div>
                 </label>
             </div>
 
-            <div class="Hidden">
-                <div class="FormSection px-4 py-3">
-                    <p><b>Garās</b></p>
+            <div class="FormSection FormGroup2 px-4 py-3">
+                <p><b>Garās</b></p>
 
-                    <input type="checkbox" id="41" name="group41[]"/>
-                    <label for="41">
-                        <div class="CheckboxDiv" onclick="check4()">Ar manžetēm</div>
-                    </label>
+                <input type="checkbox" id="Group2_0" name="CheckboxGroup2"/>
+                <label for="Group2_0">
+                    <div class="CheckboxDiv" onclick="check4()">Ar manžetēm</div>
+                </label>
 
-                    <input type="checkbox" id="42" name="group41[]"/>
-                    <label for="42">
-                        <div class="CheckboxDiv" onclick="check5()">Klasiskas</div>
-                    </label>
-                </div>
+                <input type="checkbox" id="Group2_1" name="CheckboxGroup2"/>
+                <label for="Group2_1">
+                    <div class="CheckboxDiv" onclick="check5()">Klasiskas</div>
+                </label>
             </div>
+
+
+
+
 
             <div class="Hidden Hidden2">
                 <div class="FormSection px-4 py-3">
