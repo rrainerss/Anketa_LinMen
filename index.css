@@ -2,7 +2,12 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');    
     :root{
         --darkergray: #3f3f3f;
-        --darkgray: #8d8d8d54;
+        --darkgray: #525353;
+        --normalgray: #8d8d8d;
+        --lightgray: #b2b2b2;
+        --lightergray: #b3b3b3;
+        --bordergray: #d9d9d9;
+        --lightestgray: #eeeeee;
 
         --offwhite: #fdfdfd;
         --grayblue:#60768b;
@@ -42,9 +47,6 @@
 /*#endregion*/
 
 /*#region Form half*/
-    .FormHalf{
-
-    }
     .FormHeader{
         background-color: var(--grayblue);
         color: white;
@@ -53,7 +55,20 @@
     }
     .FormSection{
         border: solid 1px var(--darkgray);
+        border-bottom: 0;
+    }
+    .FormSection p{
+        font-weight: 700;
+        color: var(--darkergray);
+    }
+    .FormSubsection{
+        border: solid 1px var(--darkgray);
         border-top: 0;
+        border-bottom: 0;
+    }
+    .FormSubsection p{
+        font-weight: 500;
+        color: var(--normalgray);
     }
     .CheckboxDiv{
         background-color: #ffffff00;

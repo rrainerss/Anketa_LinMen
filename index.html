@@ -16,63 +16,320 @@
                 <p class="px-4 py-4 mb-0">Izvēlieties vai aizpildiet norādītos laukus</p>
             </div>
 
-            <div class="FormSection FormGroup0 px-4 py-3">
-                <p><b>Krekla siluets</b></p>
-
-                <input type="checkbox" id="Group0_0" name="CheckboxGroup0"/>
-                <label for="Group0_0">
-                    <div class="CheckboxDiv" onclick="">Pieguļošs</div>
-                </label>
-
-                <input type="checkbox" id="Group0_1" name="CheckboxGroup0"/>
-                <label for="Group0_1">
-                    <div class="CheckboxDiv" onclick="">Brīvs</div>
-                </label>
-            </div>
-
-
             <!--Ideja-->
             <!--Padod vairākus ciparus uz funkciju, pirmais piemēram grupas nr, otrais grupai kura jāparāda-->
             <!--pirmo izmanto lai paslēptu pārējās opcijas kuras var iegūt no tās pašas sākotnējās grupas-->
             <!--Pēc idejas visam jāsaiet vienā funkcijā-->
 
-            <!--Izdomā nosaukumus subgrupām-->
+            <!--Data-target var aizstāt ar js vnk-->
+            <!--paslēp visus sub iekš citiem sub kad nospiež nost-->
 
+            <!--MAIN section 0-->
+            <div class="FormSection FormGroup0 px-4 py-3">
+                <p>Apkakle</p>
+
+                <input type="checkbox" data-checked="false" id="Group0_0" name="CheckboxGroup0"/>
+                <label for="Group0_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(0, 0)">Pieguļošs</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group0_1" name="CheckboxGroup0"/>
+                <label for="Group0_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(0, 1)">Brīvs</div>
+                </label>
+            </div>
+
+
+
+            <!--MAIN section 1-->
             <div class="FormSection FormGroup1 px-4 py-3">
-                <p><b>Piedurknes</b></p>
+                <p>Piedurknes</p>
 
                 <input type="checkbox" data-checked="false" data-target="FormGroup2" id="Group1_0" name="CheckboxGroup1"/>
                 <label for="Group1_0">
-                    <div class="CheckboxDiv" onclick="Section2(1, 0, 2);">Garās</div>
+                    <div class="CheckboxDiv" onclick="InputLogic(1, 0, 'FormGroup2')">Garās</div>
                 </label>
 
-                <input type="checkbox" data-checked="false" data-target="FormGroup2" id="Group1_1" name="CheckboxGroup1"/>
+                <input type="checkbox" data-checked="false" data-target="FormGroup3" id="Group1_1" name="CheckboxGroup1"/>
                 <label for="Group1_1">
-                    <div class="CheckboxDiv" onclick="Section2(1, 1, 2);">Pusgarās</div>
+                    <div class="CheckboxDiv" onclick="InputLogic(1, 1, 'FormGroup3')">Pusgarās</div>
                 </label>
 
-                <input type="checkbox" data-checked="false" data-target="FormGroup2" id="Group1_2" name="CheckboxGroup1"/>
+                <input type="checkbox" data-checked="false" data-target="FormGroup4" id="Group1_2" name="CheckboxGroup1"/>
                 <label for="Group1_2">
-                    <div class="CheckboxDiv" onclick="Section2(1, 2, 2);">Īsās</div>
+                    <div class="CheckboxDiv" onclick="InputLogic(1, 2, 'FormGroup4')">Īsās</div>
                 </label>
             </div>
 
-            <div class="FormSection FormGroup2 px-4 py-3">
-                <p><b>Garās</b></p>
+            <!--Subsection 2-->
+            <div class="FormSection FormSubsection FormGroup2 px-4 pb-3">
+                <p>Garās (kategorija)</p>
 
-                <input type="checkbox" id="Group2_0" name="CheckboxGroup2"/>
+                <input type="checkbox" data-checked="false" data-target="FormGroup5" id="Group2_0" name="CheckboxGroup2"/>
                 <label for="Group2_0">
-                    <div class="CheckboxDiv" onclick="check4()">Ar manžetēm</div>
+                    <div class="CheckboxDiv" onclick="InputLogic(2, 0, 'FormGroup5')">Ar manžetēm</div>
                 </label>
 
-                <input type="checkbox" id="Group2_1" name="CheckboxGroup2"/>
+                <input type="checkbox" data-checked="false" id="Group2_1" name="CheckboxGroup2"/>
                 <label for="Group2_1">
-                    <div class="CheckboxDiv" onclick="check5()">Klasiskas</div>
+                    <div class="CheckboxDiv" onclick="InputLogic(2, 0)">Klasiskas</div>
+                </label>
+            </div>
+
+            <!--Subsection 3-->
+            <div class="FormSection FormSubsection FormGroup3 px-4 pb-3">
+                <p>Pusgarās (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group3_0" name="CheckboxGroup3"/>
+                <label for="Group3_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(3, 0)">Klasiskas</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group3_1" name="CheckboxGroup3"/>
+                <label for="Group3_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(3, 1)">Ar pogājumu</div>
+                </label>
+            </div>
+
+            <!--Subsection 4-->
+            <div class="FormSection FormSubsection FormGroup4 px-4 pb-3">
+                <p>Īsās (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group4_0" name="CheckboxGroup4"/>
+                <label for="Group4_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(4, 0)">Klasiskas</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup6" id="Group4_1" name="CheckboxGroup4"/>
+                <label for="Group4_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(4, 1, 'FormGroup6')">Ar atloku</div>
+                </label>
+            </div>
+
+            <!--Subsection 5-->
+            <div class="FormSection FormSubsection FormGroup5 px-4 pb-3">
+                <p>Ar manžetēm (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group5_0" name="CheckboxGroup5"/>
+                <label for="Group5_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(5, 0)">Klasiskas</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group5_1" name="CheckboxGroup5"/>
+                <label for="Group5_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(5, 1)">Ar detaļu</div>
+                </label>
+            </div>
+
+            <!--Subsection 6-->
+            <div class="FormSection FormSubsection FormGroup6 px-4 pb-3">
+                <p>Ar atloku (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group6_0" name="CheckboxGroup6"/>
+                <label for="Group6_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(6, 0)">Ar pogu</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group6_1" name="CheckboxGroup6"/>
+                <label for="Group6_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(6, 1)">Bez pogas</div>
                 </label>
             </div>
 
 
 
+            <!--MAIN section 7-->
+            <div class="FormSection FormGroup7 px-4 py-3">
+                <p>Apkakle</p>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup8" id="Group7_0" name="CheckboxGroup7"/>
+                <label for="Group7_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(7, 0, 'FormGroup8')">Ar apkakli</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup9" id="Group7_1" name="CheckboxGroup7"/>
+                <label for="Group7_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(7, 1, 'FormGroup9')">Bez apkakles</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup10" id="Group7_2" name="CheckboxGroup7"/>
+                <label for="Group7_2">
+                    <div class="CheckboxDiv" onclick="InputLogic(7, 2, 'FormGroup10')">Ar izgriezumu</div>
+                </label>
+            </div>
+
+            <!--Subsection 8-->
+            <div class="FormSection FormSubsection FormGroup8 px-4 pb-3">
+                <p>Ar apkakli (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup11" id="Group8_0" name="CheckboxGroup8"/>
+                <label for="Group8_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(8, 0, 'FormGroup11')">Stāvkrādziņa</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup12" id="Group8_1" name="CheckboxGroup8"/>
+                <label for="Group8_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(8, 1, 'FormGroup12')">Klasiskā apkakle</div>
+                </label>
+            </div>
+
+            <!--Subsection 9-->
+            <div class="FormSection FormSubsection FormGroup9 px-4 pb-3">
+                <p>Bez apkakles (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group9_0" name="CheckboxGroup9"/>
+                <label for="Group9_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(9, 0)">Priekšpusē vīle pa centru un poga augšpusē</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group9_1" name="CheckboxGroup9"/>
+                <label for="Group9_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(9, 1)">Mugurpusē vīle pa centru un poga augšpusē</div>
+                </label>
+            </div>
+
+            <!--Subsection 10-->
+            <div class="FormSection FormSubsection FormGroup10 px-4 pb-3">
+                <p>Ar izgriezumu (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group10_0" name="CheckboxGroup10"/>
+                <label for="Group10_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(10, 0)">Stāvkrādziņa</div>
+                </label>
+            </div>
+
+            <!--Subsection 11-->
+            <div class="FormSection FormSubsection FormGroup11 px-4 pb-3">
+                <p>Stāvkrādziņa (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group11_0" name="CheckboxGroup11"/>
+                <label for="Group11_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(11, 0)">Pogājums līdz krūšu daļai</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group11_1" name="CheckboxGroup11"/>
+                <label for="Group11_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(11, 1)">Pogājums līdz apakšai</div>
+                </label>
+            </div>
+
+            <!--Subsection 12-->
+            <div class="FormSection FormSubsection FormGroup12 px-4 pb-3">
+                <p>Klasiskā apkakle (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group12_0" name="CheckboxGroup12"/>
+                <label for="Group12_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(12, 0)">Pogājums līdz krūšu daļai</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group12_1" name="CheckboxGroup12"/>
+                <label for="Group12_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(12, 1)">Pogājums līdz apakšai</div>
+                </label>
+            </div>
+
+
+
+            <!--MAIN section 13-->
+            <div class="FormSection FormGroup13 px-4 py-3">
+                <p>Apakšmala</p>
+
+                <input type="checkbox" data-checked="false" id="Group13_0" name="CheckboxGroup13"/>
+                <label for="Group13_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(13, 0)">Taisna</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group13_1" name="CheckboxGroup13"/>
+                <label for="Group13_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(13, 1)">Izliekta</div>
+                </label>
+            </div>
+
+
+
+            <!--MAIN section 14-->
+            <div class="FormSection FormGroup14 px-4 py-3">
+                <p>Kabatas</p>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup15" id="Group14_0" name="CheckboxGroup14"/>
+                <label for="Group14_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(14, 0, 'FormGroup15')">Bez kabatām</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup16" id="Group14_1" name="CheckboxGroup14"/>
+                <label for="Group14_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(14, 1, 'FormGroup16')">Ar kabatām</div>
+                </label>
+            </div>
+
+            <!--Subsection 15-->
+            <div class="FormSection FormSubsection FormGroup15 px-4 pb-3">
+                <p>Bez kabatām (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group15_0" name="CheckboxGroup15"/>
+                <label for="Group15_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(15, 0)">Ar vienu klapi</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group15_1" name="CheckboxGroup15"/>
+                <label for="Group15_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(15, 1)">Ar divām klapēm</div>
+                </label>
+            </div>
+
+            <!--Subsection 16-->
+            <div class="FormSection FormSubsection FormGroup16 px-4 pb-3">
+                <p>Ar kabatām (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup17" id="Group16_0" name="CheckboxGroup16"/>
+                <label for="Group16_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(16, 0, 'FormGroup17')">Ar vienu kabatu</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup18" id="Group16_1" name="CheckboxGroup16"/>
+                <label for="Group16_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(16, 1, 'FormGroup18')">Ar divām kabatām</div>
+                </label>
+            </div>
+
+            <!--Subsection 17-->
+            <div class="FormSection FormSubsection FormGroup17 px-4 pb-3">
+                <p>Ar vienu kabatu (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group17_0" name="CheckboxGroup17"/>
+                <label for="Group17_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(17, 0)">Bez klapes</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group17_1" name="CheckboxGroup17"/>
+                <label for="Group17_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(17, 1)">Ar klapi</div>
+                </label>
+            </div>
+
+            <!--Subsection 18-->
+            <div class="FormSection FormSubsection FormGroup18 px-4 pb-3">
+                <p>Ar divām kabatām (kategorija)</p>
+
+                <input type="checkbox" data-checked="false" id="Group18_0" name="CheckboxGroup18"/>
+                <label for="Group18_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(18, 0)">Bez klapēm</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group18_1" name="CheckboxGroup18"/>
+                <label for="Group18_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(18, 1)">Ar klapēm</div>
+                </label>
+            </div>
+
+
+
+
+
+
+
+
+            <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
 
 
             <div class="Hidden Hidden2">
