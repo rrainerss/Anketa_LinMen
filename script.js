@@ -57,6 +57,7 @@
                 //was checked
                 $("[id^='Group" + Group + "']").each(function()
                 {
+                    console.log(this);
                     if($(this).attr("data-target"))
                     {
                         var GroupTargets = $(this).attr("data-target");
@@ -65,7 +66,7 @@
                 });
             }
         }
-        //not all 3 variables are passed
+        //not all 3 variables are passed, checkbox doesnt have descendants
         else
         {
             $("[id^='Group" + Group + "']").each(function()

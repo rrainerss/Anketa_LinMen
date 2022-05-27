@@ -324,216 +324,154 @@
 
 
 
+            <!--MAIN section 19-->
+            <div class="FormSection FormGroup19 px-4 py-3">
+                <p>Izmēri</p>
 
-
-
-
-
-            <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
-
-
-            <div class="Hidden Hidden2">
-                <div class="FormSection px-4 py-3">
-                    <p><b>Ar manžetēm</b></p>
-
-                    <input type="checkbox" id="43" name="group33[]"/>
-                    <label for="43">
-                        <div class="CheckboxDiv" onclick="check6()">Klasiskas</div>
-                    </label>
-
-                    <input type="checkbox" id="44" name="group33[]"/>
-                    <label for="44">
-                        <div class="CheckboxDiv" onclick="check7()">Ar detaļu</div>
-                    </label>
-                </div>
-            </div>
-
-            <div class="Hidden Hidden3">
-                <div class="FormSection px-4 py-3">
-                    <p><b>Pusgarās</b></p>
-
-                    <input type="checkbox" id="45" name="group34[]"/>
-                    <label for="45">
-                        <div class="CheckboxDiv" onclick="check6()">Klasiskas</div>
-                    </label>
-
-                    <input type="checkbox" id="46" name="group34[]"/>
-                    <label for="46">
-                        <div class="CheckboxDiv" onclick="check7()">Ar pogājumu</div>
-                    </label>
-                </div>
-            </div>
-
-            <div class="Hidden Hidden4">
-                <div class="FormSection px-4 py-3">
-                    <p><b>Īsās</b></p>
-
-                    <input type="checkbox" id="47" name="group34[]"/>
-                    <label for="47">
-                        <div class="CheckboxDiv" onclick="check12()">Klasiskas</div>
-                    </label>
-
-                    <input type="checkbox" id="48" name="group34[]"/>
-                    <label for="48">
-                        <div class="CheckboxDiv" onclick="check11()">Ar atloku</div>
-                    </label>
-                </div>
-            </div>
-
-            <div class="Hidden Hidden5">
-                <div class="FormSection px-4 py-3">
-                    <p><b>Ar atloku</b></p>
-
-                    <input type="checkbox" id="49" name="group[]"/>
-                    <label for="49">
-                        <div class="CheckboxDiv" >Ar pogu</div>
-                    </label>
-
-                    <input type="checkbox" id="50" name="group[]"/>
-                    <label for="50">
-                        <div class="CheckboxDiv" onclick="check11()">Bez pogas</div>
-                    </label>
-                </div>
-            </div>
-
-            <div class="FormSection px-4 py-3">
-                <p><b>Apkakle</b></p>
-
-                <input type="checkbox" id="6" name="group3[]"/>
-                <label for="6">
-                    <div class="CheckboxDiv">Ar apkakli</div>
+                <input type="checkbox" data-checked="false" data-target="FormGroup20" id="Group19_0" name="CheckboxGroup19"/>
+                <label for="Group19_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(19, 0, 'FormGroup20')">Standarta izmērs</div>
                 </label>
 
-                <input type="checkbox" id="7" name="group3[]"/>
-                <label for="7">
-                    <div class="CheckboxDiv">Bez apkakles</div>
-                </label>
-
-                <input type="checkbox" id="8" name="group3[]"/>
-                <label for="8">
-                    <div class="CheckboxDiv">Ar izgriezumu</div>
+                <input type="checkbox" data-checked="false" data-target="FormGroup21" id="Group19_1" name="CheckboxGroup19"/>
+                <label for="Group19_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(19, 1, 'FormGroup21')">Individuāls izmērs</div>
                 </label>
             </div>
 
-            <div class="FormSection px-4 py-3">
-                <p><b>Apakšmala</b></p>
+            <!--Subsection 20-->
+            <div class="FormSection FormSubsection FormGroup20 px-4 pb-3">
+                <p>Standarta izmērs (kategorija)</p>
 
-                <input type="checkbox" id="9" name="group4[]"/>
-                <label for="9">
-                    <div class="CheckboxDiv">Taisna</div>
+                <input type="checkbox" data-checked="false" id="Group20_0" name="CheckboxGroup20"/>
+                <label for="Group20_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 0)">Xs</div>
                 </label>
 
-                <input type="checkbox" id="10" name="group4[]"/>
-                <label for="10">
-                    <div class="CheckboxDiv">Izliekta</div>
-                </label>
-            </div>
-
-            <div class="FormSection px-4 py-3">
-                <p><b>Kabatas</b></p>
-
-                <input type="checkbox" id="11" name="group5[]"/>
-                <label for="11">
-                    <div class="CheckboxDiv">Bez kabatām</div>
+                <input type="checkbox" data-checked="false" id="Group20_1" name="CheckboxGroup20"/>
+                <label for="Group20_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 1)">S</div>
                 </label>
 
-                <input type="checkbox" id="12" name="group5[]"/>
-                <label for="12">
-                    <div class="CheckboxDiv">Ar kabatām</div>
-                </label>
-            </div>
-
-            <div class="FormSection px-4 py-3">
-                <p><b>Standarta izmērs</b></p>
-
-                <input type="checkbox" id="13" name="group6[]"/>
-                <label for="13">
-                    <div class="CheckboxDiv">Xs</div>
+                <input type="checkbox" data-checked="false" id="Group20_2" name="CheckboxGroup20"/>
+                <label for="Group20_2">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 2)">M</div>
                 </label>
 
-                <input type="checkbox" id="14" name="group6[]"/>
-                <label for="14">
-                    <div class="CheckboxDiv">S</div>
+                <input type="checkbox" data-checked="false" id="Group20_3" name="CheckboxGroup20"/>
+                <label for="Group20_3">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 3)">L</div>
                 </label>
 
-                <input type="checkbox" id="15" name="group6[]"/>
-                <label for="15">
-                <div class="CheckboxDiv">M</div>
+                <input type="checkbox" data-checked="false" id="Group20_4" name="CheckboxGroup20"/>
+                <label for="Group20_4">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 4)">XL</div>
                 </label>
 
-                <input type="checkbox" id="16" name="group6[]"/>
-                <label for="16">
-                    <div class="CheckboxDiv">L</div>
+                <input type="checkbox" data-checked="false" id="Group20_5" name="CheckboxGroup20"/>
+                <label for="Group20_5">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 5)">2XL</div>
                 </label>
 
-                <input type="checkbox" id="17" name="group6[]"/>
-                <label for="17">
-                    <div class="CheckboxDiv">XL</div>
+                <input type="checkbox" data-checked="false" id="Group20_6" name="CheckboxGroup20"/>
+                <label for="Group20_6">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 6)">3XL</div>
                 </label>
 
-                <input type="checkbox" id="18" name="group6[]"/>
-                <label for="18">
-                    <div class="CheckboxDiv">2XL</div>
+                <input type="checkbox" data-checked="false" id="Group20_7" name="CheckboxGroup20"/>
+                <label for="Group20_7">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 7)">4XL</div>
                 </label>
 
-                <input type="checkbox" id="19" name="group6[]"/>
-                <label for="19">
-                    <div class="CheckboxDiv">3XL</div>
+                <input type="checkbox" data-checked="false" id="Group20_8" name="CheckboxGroup20"/>
+                <label for="Group20_8">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 8)">5XL</div>
                 </label>
 
-                <input type="checkbox" id="20" name="group6[]"/>
-                <label for="20">
-                    <div class="CheckboxDiv">Cits</div>
+                <input type="checkbox" data-checked="false" id="Group20_9" name="CheckboxGroup20"/>
+                <label for="Group20_9">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 9)">6XL</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group20_10" name="CheckboxGroup20"/>
+                <label for="Group20_10">
+                    <div class="CheckboxDiv" onclick="InputLogic(20, 10)">7XL</div>
                 </label>
             </div>
 
-            <div class="FormSection px-4 py-3">
-                <p><b>Individuāls izmērs</b></p>
+            <!--Subsection 21-->
+            <div class="FormSection FormSubsection FormGroup21 px-4 pb-3">
+                <p>Individuāls izmērs (kategorija)</p>
 
-                <input type="checkbox" id="21" name="group7[]"/>
-                <label for="21">
-                    <div class="CheckboxDiv">Krūšu apkārtmērs</div>
+                <input type="checkbox" data-checked="false" id="Group21_0" name="CheckboxGroup21"/>
+                <label for="Group21_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(21, 0)">Krūšu apkārtmērs</div>
                 </label>
 
-                <input type="checkbox" id="22" name="group7[]"/>
-                <label for="22">
-                    <div class="CheckboxDiv">Auguma garums</div>
+                <input type="checkbox" data-checked="false" id="Group21_1" name="CheckboxGroup21"/>
+                <label for="Group21_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(21, 1)">Auguma garums</div>
                 </label>
 
-                <input type="checkbox" id="23" name="group7[]"/>
-                <label for="23">
-                    <div class="CheckboxDiv">Kakla apkārtmērs</div>
+                <input type="checkbox" data-checked="false" id="Group21_2" name="CheckboxGroup21"/>
+                <label for="Group21_2">
+                    <div class="CheckboxDiv" onclick="InputLogic(21, 2)">Kakla apkārtmērs</div>
+                </label>
+            </div>
+
+
+
+            <!--MAIN section 22-->
+            <div class="FormSection FormGroup22 px-4 py-3">
+                <p>Auguma īpatnības</p>
+
+                <input type="checkbox" data-checked="false" id="Group22_0" name="CheckboxGroup22"/>
+                <label for="Group22_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(22, 0)">Esmu standarts</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group22_1" name="CheckboxGroup22"/>
+                <label for="Group22_1">
+                    <div class="CheckboxDiv" onclick="InputLogic(22, 1)">Muskuļota miesasbūve</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group22_2" name="CheckboxGroup22"/>
+                <label for="Group22_2">
+                    <div class="CheckboxDiv" onclick="InputLogic(22, 2)">"Alus vēderiņš"</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group22_3" name="CheckboxGroup22"/>
+                <label for="Group22_3">
+                    <div class="CheckboxDiv" onclick="InputLogic(22, 3)">Sakumpusi stāja</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" id="Group22_4" name="CheckboxGroup22"/>
+                <label for="Group22_4">
+                    <div class="CheckboxDiv" onclick="InputLogic(22, 4)">Izliekta stāja</div>
+                </label>
+
+                <input type="checkbox" data-checked="false" data-target="FormGroup23" id="Group22_5" name="CheckboxGroup22"/>
+                <label for="Group22_5">
+                    <div class="CheckboxDiv" onclick="InputLogic(22, 5, 'FormGroup23')">Cits variants</div>
                 </label>
             </div>
 
-            <div class="FormSection px-4 py-3">
-                <p><b>Auguma īpatnības</b></p>
+            <!--Subsection 23-->
+            <div class="FormSection FormSubsection FormGroup23 px-4 pb-3">
+                <p>Cits variants (kategorija)</p>
 
-                <input type="checkbox" id="24" name="group8[]"/>
-                <label for="24">
-                    <div class="CheckboxDiv">Muskuļota miesasbūve</div>
-                </label>
-
-                <input type="checkbox" id="25" name="group8[]"/>
-                <label for="25">
-                    <div class="CheckboxDiv">"Alus vēderiņš"</div>
-                </label>
-
-                <input type="checkbox" id="26" name="group8[]"/>
-                <label for="26">
-                    <div class="CheckboxDiv">Sākumpusi stāja</div>
-                </label>
-
-                <input type="checkbox" id="27" name="group8[]"/>
-                <label for="27">
-                    <div class="CheckboxDiv">Izliekta stāja</div>
-                </label>
-
-                <input type="checkbox" id="28" name="group8[]"/>
-                <label for="28">
-                    <div class="CheckboxDiv">Cits variants</div>
+                <input type="checkbox" data-checked="false" id="Group23_0" name="CheckboxGroup23"/>
+                <label for="Group23_0">
+                    <div class="CheckboxDiv" onclick="InputLogic(23, 0)">[ Šeit varēs rakstīt ]</div>
                 </label>
             </div>
+
+
+
+
+            <p>------ temporary divider</p>
+
+
 
             <div class="FormSection px-4 py-3">
                 <p><b>Krāsa</b></p>
