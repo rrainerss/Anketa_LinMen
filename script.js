@@ -17,6 +17,11 @@ $(".FormSection input:checkbox").on('click', function()
     }
 });
 
+//Hide subsections on load
+$( document ).ready(function()
+{
+    console.log( "ready!" );
+});
 
 //Checkbox input logic
 function Section2(Group, Option, Target)
@@ -25,29 +30,29 @@ function Section2(Group, Option, Target)
     if((Group || Group === 0) && (Option || Option === 0) && (Target || Target === 0))
     {
         //check if clicked checkbox was already checked
-        if($("#Group" + Group + "_" + Option).attr('data-checked') == 'false')
+        if($("#Group" + Group + "_" + Option).attr("data-checked") == 'false')
         {
             //wasnt checked
-            console.log($("[id^='Group" + Group + "']"));
-
-            $("[id^='Group" + Group + "']").each(function(i, InputElement)
+            $("[id^='Group" + Group + "']").each(function()
             {
-                console.log(InputElement);
+                var GroupTargets = $(this).attr("data-target");
+                document.getElementsByClassName(GroupTargets)[0].style.display = "none";
+                document.getElementsByClassName("FormGroup" + Target)[0].style.display = "block";
             });
         }
         else
         {
             //was checked
-
+            $("[id^='Group" + Group + "']").each(function()
+            {
+                var GroupTargets = $(this).attr("data-target");
+                document.getElementsByClassName(GroupTargets)[0].style.display = "none";
+            });
         }
-
-        //document.getElementById("Group" + Group + "_" + Option).checked = false;
-
-
     }
     else
     {
-        alert("one of the variables are undefined");
+        console.log("one of the variables are undefined");
     }
 
 }
