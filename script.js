@@ -52,58 +52,46 @@
 
 //////////////////////////////
 //Checkbox input logic
-    function InputLogic2(Group, Option, Target)
-    {
-        //console.log("Group, option, target: " + Group, Option, Target);
-
-        //check if all 3 variables are passed (checkbox has descendants)
-        if((Group || Group === 0) && (Option || Option === 0) && Target)
-        {
-            //check if clicked checkbox was already checked
-            //wasnt checked, then if runs
-            if($("#Group" + Group + "_" + Option).attr("data-checked") == 'false')
-            {
-                
-                $("[id^='Group" + Group + "']").each(function()
-                {
-                    var GroupTargets = $(this).attr("data-target");
-                    if($(this).attr("data-target"))
-                    {
-                        document.getElementsByClassName(GroupTargets)[0].style.display = "none";
-                        document.getElementsByClassName(Target)[0].style.display = "block";
-                    }
-                });
-            }
-            //was checked, then else runs
-            else
-            {             
-                DescendantCheck(Group);
-            }
-        }
-        //not all 3 variables are passed, checkbox doesnt have descendants
-        else
-        {
-            $("[id^='Group" + Group + "']").each(function()
-            {
-                if($(this).attr("data-target"))
-                {
-                    var GroupTargets = $(this).attr("data-target");
-                    document.getElementsByClassName(GroupTargets)[0].style.display = "none";
-                }
-            });
-        }
-    }
-
-
     function InputLogic(ClickedElement)
     {        
         var ClickedInput = ClickedElement.parent().prev();
 
-        //console.log(ClickedElement);
-
         //if This WAS NOT CHECKED
         if(ClickedInput.is(":checked") == false)
         {
+            //get the main group element
+            var GroupElement = ClickedInput.parent();
+
+            //for each element in the same level as the clicked button
+            GroupElement.children().each(function(i, MatchingElement)
+            {
+                //if the element is an input
+                if(MatchingElement.nodeName == "INPUT")
+                {
+                    var MatchingElementChecked = MatchingElement.getAttribute("data-checked");
+
+                    if(MatchingElementChecked == "true")
+                    {
+                        //gets attribute value of the matching element
+                        var MatchingElementAttr = MatchingElement.getAttribute("data-desc");
+                        
+                        //counts how many numbers it contains (determines level inside the button tree)
+                        var AttrNumCount = MatchingElementAttr.replace(/[^0-9]/g, '').length;
+
+                        //matches all elements that start with same attribute (all should be descendants or parents of clicked checkbox)
+                        $("[data-desc^='" + MatchingElementAttr + "']").each(function(i, Descendant)
+                        {
+                            if(MatchingElementAttr != Descendant.getAttribute("data-desc"))
+                            {
+                                Descendant.parentNode.style.display = "none";
+                                Descendant.setAttribute("data-checked", false);
+                                Descendant.checked = false;
+                            }
+                        });
+                    }
+                }
+            });
+
             //gets attribute
             var InputAttr = ClickedInput.attr("data-desc");
             
@@ -127,7 +115,6 @@
                     });
                 }
             });
-
         }
 
         //if This WAS CHECKED
@@ -150,6 +137,4 @@
                 }
             });
         }
-
-
     }
