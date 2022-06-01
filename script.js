@@ -30,27 +30,6 @@
     });
 
 //////////////////////////////
-//Descendant check
-    function DescendantCheck(Group)
-    {
-        $("[id^='Group" + Group + "_']").each(function(element)
-        {
-            if($(this).attr("data-target"))
-            {
-                var SelectedTarget = document.getElementsByClassName($(this).attr("data-target"))[0];
-                SelectedTarget.style.display = "none";
-                
-                if(SelectedTarget.querySelector("input").hasAttribute("data-target"))
-                {
-                    console.log(SelectedTarget.querySelector("input"));
-                    DescendantOfTarget = SelectedTarget.querySelector("input").getAttribute("data-target");
-                    document.querySelector("." + DescendantOfTarget).style.display = "none";
-                }
-            }
-        });
-    }
-
-//////////////////////////////
 //Checkbox input logic
     function InputLogic(ClickedElement)
     {        
