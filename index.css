@@ -136,3 +136,22 @@
 {
     background-color: var(--grayblue);
 }
+.ImageHalf img
+{
+}
+
+
+.ImageBoxFront, .ImageBoxBack
+{
+    width: 100%;
+    position: relative;
+}
+.OverlayImage
+{
+    width: 100%;
+    position: absolute;
+}
+.BaseImage
+{
+    margin-left: 20px;
+}

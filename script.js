@@ -116,4 +116,64 @@
                 }
             });
         }
+/*
+        function ImageLogic(Display)
+        {
+            SplitImageClass = ShowImage.split('&');
+
+            for(i = 0; i < SplitImageClass.length; i++)
+            {
+                //console.log($("." + SplitImageClass[i]));
+                $("." + SplitImageClass[i])[0].style.display = Display;
+            }
+        }*/
+    }
+
+    $(document).ready(function()
+    {
+        $(".OverlayImage").each(function(i, Image)
+        {
+            Image.style.display = 'none';
+        });
+    });
+
+    $(".CheckboxDiv").click(function()
+    {
+        console.log($(this));
+
+        var CheckboxImageAttr = $(this)[0].getAttribute("data-images");
+
+        DisplayImage();
+
+        var CheckedAttr = $(this).parent().prev()[0].getAttribute("data-checked");
+
+        if(CheckedAttr == 'true')
+        {
+            CheckedAttr = 'false';
+        }
+        else
+        {
+            CheckedAttr = 'true';
+        }
+        
+        var SplitImageClass = CheckboxImageAttr.split('&');
+
+        for(i = 0; i < SplitImageClass.length; i++)
+        {
+            if(CheckedAttr == 'true')
+            {
+                $("." + SplitImageClass[i])[0].style.display = 'block';
+                console.log('set to block');
+            }
+            else if(CheckedAttr == 'false')
+            {
+                $("." + SplitImageClass[i])[0].style.display = 'none';
+                console.log('set to none');
+            }
+        }
+    });
+
+    function DisplayImage()
+    {
+
     }

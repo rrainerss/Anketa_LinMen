@@ -26,16 +26,16 @@
 
             <!--MAIN section 0-->
             <div class="FormSection FormGroup0 px-4 py-3">
-                <p>Apkakle</p>
+                <p>Krekla siluets</p>
 
                 <input type="checkbox" data-checked="false" data-desc="0.0" id="Group0_0" name="CheckboxGroup0"/>
                 <label for="Group0_0">
-                    <div class="CheckboxDiv" onclick="InputLogic($(this))">Pieguļošs</div>
+                    <div class="CheckboxDiv" onclick="InputLogic($(this))" data-images="14_H_FR&14_H_FL&14_H_BR&14_H_BL">Pieguļošs</div>
                 </label>
 
                 <input type="checkbox" data-checked="false" data-desc="0.1" id="Group0_1" name="CheckboxGroup0"/>
                 <label for="Group0_1">
-                    <div class="CheckboxDiv" onclick="InputLogic($(this))">Brīvs</div>
+                    <div class="CheckboxDiv" onclick="InputLogic($(this))" data-images="14_I_FR&14_I_FL&14_I_BR&14_I_BL">Brīvs</div>
                 </label>
             </div>
 
@@ -526,7 +526,22 @@
         </div>
 
         <div class="ImageHalf mt-4 order-1 order-md-2">
-            <p>Images go here</p>
+            <div class="ImageContainer w-100 d-flex">
+                <div class="ImageBoxFront w-50">
+                    <img class="OverlayImage BaseImage" src="" alt="">
+                    <img class="OverlayImage 14_H_FR" src="/images/14_H_FR.png" alt="">
+                    <img class="OverlayImage 14_H_FL" src="/images/14_H_FL.png" alt="">
+                    <img class="OverlayImage 14_I_FR" src="/images/14_I_FR.png" alt="">
+                    <img class="OverlayImage 14_I_FL" src="/images/14_I_FL.png" alt="">
+                    
+                </div>
+                <div class="ImageBoxBack w-50">
+                    <img class="OverlayImage 14_H_BR" src="/images/14_H_BR.png" alt="">
+                    <img class="OverlayImage 14_H_BL" src="/images/14_H_BL.png" alt="">
+                    <img class="OverlayImage 14_I_BR" src="/images/14_I_BR.png" alt="">
+                    <img class="OverlayImage 14_I_BL" src="/images/14_I_BL.png" alt="">
+                </div>
+            </div>
         </div>
 
     </div>
