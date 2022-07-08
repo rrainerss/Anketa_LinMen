@@ -60,7 +60,6 @@
     }
     .FormSection p{
         font-weight: 700;
-        color: var(--darkergray);
     }
     .FormSubsection{
         border: solid 1px var(--darkgray);
@@ -77,13 +76,15 @@
         display: inline-block;
         cursor: pointer;
         border: 1px solid var(--darkgray);
-        color: var(--darkgray);
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -khtml-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+    }
+    .CheckboxDiv p{
+        font-weight: 400;
     }
     .FormSection input{
         display: none

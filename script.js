@@ -1,11 +1,11 @@
 //////////////////////////////
-//Allows inputs to work as checkboxes
-    $(".FormSection input:checkbox").on('click', function()
+//Allows inputs to work as checkboxes, changes appearance
+    $(".CheckboxDiv input:checkbox").on('click', function()
     {
         var $box = $(this);
         if($box.is(":checked"))
         {
-            var group = ".FormSection input:checkbox[name='" + $box.attr("name") + "']";
+            var group = ".CheckboxDiv input:checkbox[name='" + $box.attr("name") + "']";
             $(group).prop("checked", false);
             $(group).attr("data-checked", false);
             $box.prop("checked", true);
@@ -16,6 +16,7 @@
             $box.prop("checked", false);
             $box.attr("data-checked", false);
         }
+        $(document).trigger('data-attribute-changed');
     });
 
 //////////////////////////////
@@ -26,12 +27,238 @@
         {
             this.style.display = "none";
         });
-
     });
 
 //////////////////////////////
+//Hide images on load
+    $(document).ready(function()
+    {
+        $(".OverlayImage").each(function(i, Image)
+        {
+            Image.style.display = 'none';
+        });
+    });
+
+//////////////////////////////
+//Called on checkbox click
+    function InputLogic(ClickedElementObject)
+    {
+        //get DOM element of clicked checkbox from the given Jquery object
+        var ClickedElementDom = ClickedElementObject[0];
+
+        //get number attribute of clicked element 
+        var ClickedElementNumber = ClickedElementDom.getAttribute("data-desc");
+
+        //get checked attribute 
+        var ClickedElementChecked = ClickedElementDom.getAttribute("data-checked");
+
+        //flip (and convert to bool) the checked attribute of checkbox to represent new value
+        (ClickedElementChecked == 'true') ? ClickedElementChecked = false : ClickedElementChecked = true;
+
+        //get all checkboxes from the same level
+        var ClickedElementSiblings = ClickedElementObject.parent().parent().find(".CheckboxDiv > input");
+
+        //if checkbox was just checked
+        if(ClickedElementChecked == true)
+        {
+            ClickedElementDom.setAttribute("data-checked", true);
+            ClickedElementDom.checked = true;
+            ClickedElementDom.parentNode.style.backgroundColor = 'var(--grayblue)';
+            ClickedElementDom.parentNode.style.color = 'white';
+
+            CheckElement(ClickedElementNumber, ClickedElementSiblings);
+        }
+        //if checkbox was just unchecked
+        else if(ClickedElementChecked == false)
+        {
+            ClickedElementDom.setAttribute("data-checked", false);
+            ClickedElementDom.checked = false;
+            ClickedElementDom.parentNode.style.backgroundColor = 'white';
+            ClickedElementDom.parentNode.style.color = 'black';
+
+            UncheckElement(ClickedElementNumber, ClickedElementSiblings);
+        }
+
+    }
+
+//////////////////////////////
+//Called if checkbox wasnt already checked
+    function CheckElement(ClickedElementNumber, ClickedElementSiblings)
+    {
+        //for unchecking siblings
+        ClickedElementSiblings.each(function(i, Sibling)
+        {
+            if(Sibling.getAttribute("data-desc") != ClickedElementNumber)
+            {
+                if(Sibling.getAttribute("data-checked") == 'true')
+                {
+                    var SiblingElementNumber = Sibling.getAttribute("data-desc");
+
+                    var SiblingImage = Sibling.getAttribute("data-images");
+                    if($("." + SiblingImage).length)
+                    {
+                        $("." + SiblingImage)[0].style.display = 'none';
+                    }
+
+                    $("[data-desc^='" + SiblingElementNumber + "']").each(function(i, Descendant)
+                    {
+                        Descendant.setAttribute("data-checked", false);
+                        Descendant.checked = false;
+                        Descendant.parentNode.style.backgroundColor = 'white';
+                        Descendant.parentNode.style.color = 'black';
+
+                        var DescendantElementNumber = Descendant.getAttribute("data-desc");
+
+                        if(DescendantElementNumber.length > ClickedElementNumber.length)
+                        {
+                            Descendant.parentNode.parentNode.style.display = 'none';
+                        }
+                    });
+                }
+            }
+        });
+
+        //for showing checked descendant
+        var DescendantLevel = ClickedElementNumber.replace(/[^0-9]/g, '').length;
+
+        var ClickedElementImageAttr = $("[data-desc='" + ClickedElementNumber + "'")[0].getAttribute("data-images");
+
+        if($("." + ClickedElementImageAttr).length)
+        {
+            $("." + ClickedElementImageAttr)[0].style.display = 'block';
+            console.log(ClickedElementImageAttr);
+        }
+
+        $("[data-desc^='" + ClickedElementNumber + "']").each(function(i, Descendant)
+        {
+            if(Descendant.getAttribute("data-desc").replace(/[^0-9]/g, '').length == (DescendantLevel + 1))
+            {
+                Descendant.parentNode.parentNode.style.display = 'block';
+            }
+        });
+    }
+
+//////////////////////////////
+//Called if checkbox was already checked
+    function UncheckElement(ClickedElementNumber, ClickedElementSiblings)
+    {
+        $("[data-desc^='" + ClickedElementNumber + "']").each(function(i, Descendant)
+        {
+            Descendant.setAttribute("data-checked", false);
+            Descendant.checked = false;
+            Descendant.parentNode.style.backgroundColor = 'white';
+            Descendant.parentNode.style.color = 'black';
+
+            var DescendantLevel = Descendant.getAttribute("data-desc").replace(/[^0-9]/g, '').length;
+
+            if(DescendantLevel > ClickedElementNumber.replace(/[^0-9]/g, '').length)
+            {
+                Descendant.parentNode.parentNode.style.display = 'none';
+            }
+        });
+    }
+
+
+
+
+/*
+    function InputLogic2(ClickedElementObject)
+    {
+        //get DOM element of clicked checkbox from the given Jquery object
+        var ClickedElementDom = ClickedElementObject[0];
+        
+        //get checked attribute 
+        var ClickedElementChecked = ClickedElementDom.getAttribute("data-checked");
+
+        //get descendant number attribute 
+        var ClickedElementNumber = ClickedElementDom.getAttribute("data-desc");
+
+        //flip (and convert to bool) the checked attribute of checkbox to represent new value
+        (ClickedElementChecked == 'true') ? ClickedElementChecked = false : ClickedElementChecked = true;
+
+        //if checkbox is now checked
+        if(ClickedElementChecked == true)
+        {
+            //get all checkboxes from the same level
+            var ClickedElementSiblings = ClickedElementObject.parent().parent().find(".CheckboxDiv > input");
+
+            //for each of the checkboxes
+            ClickedElementSiblings.each(function(i, Sibling)
+            {
+                //get descendant number attribute of other same level checkboxes
+                SiblingElementNumber = Sibling.getAttribute("data-desc");
+
+                //get checked attribute of other same level checkboxes
+                SiblingElementChecked = Sibling.getAttribute("data-checked");
+
+                //if the numbers differs from the clicked checkbox descendant number (excludes it from the array)
+                if(ClickedElementNumber != SiblingElementNumber)
+                {
+                    //if the element is checked
+                    if(SiblingElementChecked == 'true')
+                    {
+                        //matches all elements that start with same attribute (all should be descendants or parents of clicked checkbox)
+                        $("[data-desc^='" + SiblingElementNumber + "']").each(function(i, Descendant)
+                        {
+                            //uncheck each element
+                            Descendant.setAttribute("data-checked", false);
+                            Descendant.checked = false;
+                            Descendant.parentNode.style.backgroundColor = 'white';
+                            Descendant.parentNode.style.color = 'black';
+
+                            //hide the descendentant button containers
+                            if(SiblingElementNumber.length > ClickedElementNumber.length)
+                            {
+                                Descendant.parentNode.parentNode.style.display = "none";
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        //if checkbox is now unchecked
+        else if(ClickedElementChecked == false)
+        {
+            
+        }
+
+    }
+
+
+*/
+
+
+    /*$(document).on('data-attribute-changed', function()
+    {
+        var AttrValue = $('.CheckboxDiv').parent().prev().attr("data-checked");
+        console.log('Data changed to: ' + AttrValue);
+    });
+
+    $(".CheckboxDiv").click(function()
+    {
+        InputDomElement = $(this).parent().prev()[0];
+        console.log(InputDomElement);
+
+
+
+        //$(".CheckboxDiv").each(function(i, CheckboxDiv)
+        //{   
+        //    if(CheckboxDiv)
+        //    {
+        //        console.log(CheckboxDiv);
+        //    }
+        //}); 
+    });*/
+
+
+
+
+
+//////////////////////////////
 //Checkbox input logic
-    function InputLogic(ClickedElement)
+/*
+    function InputLogic1(ClickedElement)
     {        
         //gets the actual input of the clicked button
         var ClickedInput = ClickedElement.parent().prev();
@@ -46,30 +273,6 @@
         //if the input was not checked
         if(ClickedInput.is(":checked") == false)
         {
-
-            if(ClickedElement.attr("data-images"))
-            {
-                //for each image that contains the starting number of current level images
-                $('[class*="' + ImageNumber + '_"]').each(function(i, SameLevelImage)
-                {
-                    //hides each image
-                    SameLevelImage.style.display = 'none';
-                });
-
-                //gets image classes from the currently clicked/checked button
-                var ImagesToDisplay = ClickedElement[0].getAttribute("data-images");
-
-                //splits string into seperate class names
-                var SplitImageClasses = ImagesToDisplay.split('&');
-
-                //for each element of the class
-                for(i = 0; i < SplitImageClasses.length; i++)
-                {
-                    //displays each image
-                    $("." + SplitImageClasses[i])[0].style.display = 'block';
-                }
-            }
-
             //get the parent of the clicked input
             var GroupElement = ClickedInput.parent();
 
@@ -99,6 +302,7 @@
                                 Descendant.parentNode.style.display = "none";
                                 Descendant.setAttribute("data-checked", false);
                                 Descendant.checked = false;
+                                $(document).trigger('data-attribute-changed');
                             }
                         });
                     }
@@ -153,40 +357,77 @@
                     Descendant.parentNode.style.display = "none";
                     Descendant.setAttribute("data-checked", false);
                     Descendant.checked = false;
+                    $(document).trigger('data-attribute-changed');
                 }
             });
-            
-            if(ClickedElement.attr("data-images"))
-            {
-                //gets image classes from the currently clicked/checked button
-                var ImagesToDisplay = ClickedElement[0].getAttribute("data-images");
-
-                //splits string into seperate class names
-                var SplitImageClasses = ImagesToDisplay.split('&');
-                
-                //for each element of the class
-                for(i = 0; i < SplitImageClasses.length; i++)
-                {
-                    //hides each image
-                    $("." + SplitImageClasses[i])[0].style.display = 'none';
-                }
-            }
         }
     }
 
-    $(document).ready(function()
+
+    $(".FormSection input:checkbox").on('click', function()
     {
-        $(".OverlayImage").each(function(i, Image)
+        var $box = $(this);
+        if($box.is(":checked"))
         {
-            Image.style.display = 'none';
+            var group = ".FormSection input:checkbox[name='" + $box.attr("name") + "']";
+            $(group).prop("checked", false);
+            $(group).attr("data-checked", false);
+            $box.prop("checked", true);
+            $box.attr("data-checked", true);
+        }
+        else
+        {
+            $box.prop("checked", false);
+            $box.attr("data-checked", false);
+        }
+        $(document).trigger('data-attribute-changed');
+    });
+
+
+    //attr, display or hide
+    function DisplayImage1(ButtonAttrs, CheckValue)
+    {
+        //console.log("----");
+        //console.log(ButtonAttrs);
+        //console.log(CheckValue);
+        //console.log("----");
+        //iegūst atribūtu no pogas un darbību ar pogu (hide/show)
+        //veic darbību ar klasēm no atribūta
+
+        $("." + ButtonAttrs).each(function(i, ImageClassElement)
+        {
+            console.log(ImageClassElement);
+            if(CheckValue == 'true')
+            {
+                ImageClassElement.style.display = 'block';
+            }
+            else if(CheckValue == 'false')
+            {
+                ImageClassElement.style.display = 'none';
+            }
         });
+    }
+
+*/
+
+/*
+
+
+    $(".CheckboxDivaaaaaa").click(function()
+    {
+        console.log($(this)[0]);
+
+        $(".CheckboxDiv").each(function(i, CheckboxDiv)
+        {   
+            if(CheckboxDiv)
+            {
+                console.log(CheckboxDiv);
+            }
+        }); 
     });
 
 
 
-
-
-/*
     $(".CheckboxDiv").click(function()
     {
         console.log($(this));
@@ -223,9 +464,4 @@
         }
     });*/
 
-    function DisplayImage()
-    {
-        //iegūst ciparu no rādāmajiem attēliem
-        //paslēpj visus ar to pašu ciparu
-        //parāda visus rādāmos
-    }
+
