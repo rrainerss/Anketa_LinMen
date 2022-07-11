@@ -135,7 +135,7 @@
 
 .ImageHalf
 {
-    background-color: var(--grayblue);
+    background-color: white;
 }
 .ImageHalf img
 {
@@ -154,5 +154,5 @@
 }
 .BaseImage
 {
-    margin-left: 20px;
+    
 }

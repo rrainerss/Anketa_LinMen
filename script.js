@@ -33,7 +33,7 @@
 //Hide images on load
     $(document).ready(function()
     {
-        $(".OverlayImage").each(function(i, Image)
+        $(".OverlayImage:not(.BaseImage)").each(function(i, Image)
         {
             Image.style.display = 'none';
         });
@@ -95,9 +95,14 @@
                     var SiblingElementNumber = Sibling.getAttribute("data-desc");
 
                     var SiblingImage = Sibling.getAttribute("data-images");
+
                     if($("." + SiblingImage).length)
                     {
-                        $("." + SiblingImage)[0].style.display = 'none';
+                        $("." + SiblingImage).each(function(i, Element)
+                        {
+                            console.log(Element);
+                            Element.style.display = 'none';
+                        });
                     }
 
                     $("[data-desc^='" + SiblingElementNumber + "']").each(function(i, Descendant)
@@ -108,6 +113,16 @@
                         Descendant.parentNode.style.color = 'black';
 
                         var DescendantElementNumber = Descendant.getAttribute("data-desc");
+
+                        var DescendantImageAttr = Descendant.getAttribute("data-images");
+
+                        if(DescendantImageAttr != null)
+                        {
+                            $("." + DescendantImageAttr).each(function(i, Element)
+                            {
+                                Element.style.display = 'none';
+                            });
+                        }
 
                         if(DescendantElementNumber.length > ClickedElementNumber.length)
                         {
@@ -125,7 +140,10 @@
 
         if($("." + ClickedElementImageAttr).length)
         {
-            $("." + ClickedElementImageAttr)[0].style.display = 'block';
+            $("." + ClickedElementImageAttr).each(function(i, Element)
+            {
+                Element.style.display = 'block';
+            });
             console.log(ClickedElementImageAttr);
         }
 
@@ -154,6 +172,16 @@
             if(DescendantLevel > ClickedElementNumber.replace(/[^0-9]/g, '').length)
             {
                 Descendant.parentNode.parentNode.style.display = 'none';
+            }
+
+            var DescendantImageAttributes = Descendant.getAttribute("data-images");
+
+            if(DescendantImageAttributes != null)
+            {
+                $("." + DescendantImageAttributes).each(function(i, Element)
+                {
+                    Element.style.display = 'none';
+                });
             }
         });
     }
