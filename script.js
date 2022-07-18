@@ -63,8 +63,10 @@
         {
             ClickedElementDom.setAttribute("data-checked", true);
             ClickedElementDom.checked = true;
-            ClickedElementDom.parentNode.style.backgroundColor = 'var(--grayblue)';
-            ClickedElementDom.parentNode.style.color = 'white';
+            ClickedElementDom.parentNode.style.backgroundColor = 'var(--mediumgrayblue)';
+            ClickedElementDom.parentNode.style.borderColor = 'var(--mediumgrayblue)';
+            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.color = 'white';
+            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.fontWeight = '700';
 
             CheckElement(ClickedElementNumber, ClickedElementSiblings);
         }
@@ -74,7 +76,9 @@
             ClickedElementDom.setAttribute("data-checked", false);
             ClickedElementDom.checked = false;
             ClickedElementDom.parentNode.style.backgroundColor = 'white';
-            ClickedElementDom.parentNode.style.color = 'black';
+            ClickedElementDom.parentNode.style.borderColor = 'var(--lightgrayblue)';
+            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
+            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.fontWeight = '500';
 
             UncheckElement(ClickedElementNumber, ClickedElementSiblings);
         }
@@ -110,7 +114,9 @@
                         Descendant.setAttribute("data-checked", false);
                         Descendant.checked = false;
                         Descendant.parentNode.style.backgroundColor = 'white';
-                        Descendant.parentNode.style.color = 'black';
+                        Descendant.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
+                        Descendant.parentNode.getElementsByTagName("p")[0].style.fontWeight = '500';
+                        Descendant.parentNode.style.borderColor = 'var(--lightgrayblue)';
 
                         var DescendantElementNumber = Descendant.getAttribute("data-desc");
 
