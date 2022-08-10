@@ -109,13 +109,25 @@
                         });
                     }
 
+                    //divider
+                    console.log("    . ");
+                    console.log("--- divider ---");
+
                     $("[data-desc^='" + SiblingElementNumber + "']").each(function(i, Descendant)
                     {
+                        console.log(Descendant);
+
                         Descendant.setAttribute("data-checked", false);
                         Descendant.checked = false;
                         Descendant.parentNode.style.backgroundColor = 'white';
-                        Descendant.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
-                        Descendant.parentNode.getElementsByTagName("p")[0].style.fontWeight = '500';
+
+                        //only change these for checkboxes, not text inputs
+                        if(Descendant.getAttribute("type") != "text")
+                        {
+                            Descendant.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
+                            Descendant.parentNode.getElementsByTagName("p")[0].style.fontWeight = '500';
+                        }
+
                         Descendant.parentNode.style.borderColor = 'var(--lightgrayblue)';
 
                         var DescendantElementNumber = Descendant.getAttribute("data-desc");
@@ -171,7 +183,12 @@
             Descendant.setAttribute("data-checked", false);
             Descendant.checked = false;
             Descendant.parentNode.style.backgroundColor = 'white';
-            Descendant.parentNode.style.color = 'black';
+            Descendant.parentNode.style.borderColor = 'var(--lightgrayblue)';
+            Descendant.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
+            Descendant.parentNode.getElementsByTagName("p")[0].style.fontWeight = '500';
+
+            console.log('this');
+            console.log(Descendant);
 
             var DescendantLevel = Descendant.getAttribute("data-desc").replace(/[^0-9]/g, '').length;
 
