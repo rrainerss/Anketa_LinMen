@@ -66,7 +66,7 @@
             ClickedElementDom.parentNode.style.backgroundColor = 'var(--mediumgrayblue)';
             ClickedElementDom.parentNode.style.borderColor = 'var(--mediumgrayblue)';
             ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.color = 'white';
-            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.fontWeight = '700';
+            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 1px rgb(255, 255, 255) !important';
 
             CheckElement(ClickedElementNumber, ClickedElementSiblings);
         }
@@ -78,11 +78,10 @@
             ClickedElementDom.parentNode.style.backgroundColor = 'white';
             ClickedElementDom.parentNode.style.borderColor = 'var(--lightgrayblue)';
             ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
-            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.fontWeight = '500';
+            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 0px rgb(255, 255, 255) !important';
 
             UncheckElement(ClickedElementNumber, ClickedElementSiblings);
         }
-
     }
 
 //////////////////////////////
@@ -104,19 +103,12 @@
                     {
                         $("." + SiblingImage).each(function(i, Element)
                         {
-                            console.log(Element);
                             Element.style.display = 'none';
                         });
                     }
 
-                    //divider
-                    console.log("    . ");
-                    console.log("--- divider ---");
-
                     $("[data-desc^='" + SiblingElementNumber + "']").each(function(i, Descendant)
                     {
-                        console.log(Descendant);
-
                         Descendant.setAttribute("data-checked", false);
                         Descendant.checked = false;
                         Descendant.parentNode.style.backgroundColor = 'white';
@@ -125,7 +117,7 @@
                         if(Descendant.getAttribute("type") != "text")
                         {
                             Descendant.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
-                            Descendant.parentNode.getElementsByTagName("p")[0].style.fontWeight = '500';
+                            Descendant.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 0px rgb(255, 255, 255) !important';
                         }
 
                         Descendant.parentNode.style.borderColor = 'var(--lightgrayblue)';
@@ -162,7 +154,6 @@
             {
                 Element.style.display = 'block';
             });
-            console.log(ClickedElementImageAttr);
         }
 
         $("[data-desc^='" + ClickedElementNumber + "']").each(function(i, Descendant)
@@ -185,10 +176,7 @@
             Descendant.parentNode.style.backgroundColor = 'white';
             Descendant.parentNode.style.borderColor = 'var(--lightgrayblue)';
             Descendant.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
-            Descendant.parentNode.getElementsByTagName("p")[0].style.fontWeight = '500';
-
-            console.log('this');
-            console.log(Descendant);
+            Descendant.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 0px rgb(255, 255, 255) !important';
 
             var DescendantLevel = Descendant.getAttribute("data-desc").replace(/[^0-9]/g, '').length;
 
@@ -207,6 +195,15 @@
                 });
             }
         });
+    }
+
+    function CheckExtra()
+    {
+        if($("input[data-desc='4.1']").attr("data-checked") == 'true')
+        {
+            $("input[data-desc='4.1.1']").click();
+            $("input[data-desc='4.1.1.0']").click();
+        }
     }
 
 
