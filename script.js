@@ -62,11 +62,12 @@
         if(ClickedElementChecked == true)
         {
             ClickedElementDom.setAttribute("data-checked", true);
+            ClickedElementDom.parentNode.setAttribute("data-checked", true);
             ClickedElementDom.checked = true;
-            ClickedElementDom.parentNode.style.backgroundColor = 'var(--mediumgrayblue)';
-            ClickedElementDom.parentNode.style.borderColor = 'var(--mediumgrayblue)';
-            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.color = 'white';
-            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 1px rgb(255, 255, 255) !important';
+            //ClickedElementDom.parentNode.style.backgroundColor = 'var(--mediumgrayblue)';
+            //ClickedElementDom.parentNode.style.borderColor = 'var(--mediumgrayblue)';
+            //ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.color = 'white';
+            //ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 1px rgb(255, 255, 255) !important';
 
             CheckElement(ClickedElementNumber, ClickedElementSiblings);
         }
@@ -74,11 +75,12 @@
         else if(ClickedElementChecked == false)
         {
             ClickedElementDom.setAttribute("data-checked", false);
+            ClickedElementDom.parentNode.setAttribute("data-checked", false);
             ClickedElementDom.checked = false;
-            ClickedElementDom.parentNode.style.backgroundColor = 'white';
-            ClickedElementDom.parentNode.style.borderColor = 'var(--lightgrayblue)';
-            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
-            ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 0px rgb(255, 255, 255) !important';
+            //ClickedElementDom.parentNode.style.backgroundColor = 'white';
+            //ClickedElementDom.parentNode.style.borderColor = 'var(--lightgrayblue)';
+            //ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
+            //ClickedElementDom.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 0px rgb(255, 255, 255) !important';
 
             UncheckElement(ClickedElementNumber, ClickedElementSiblings);
         }
@@ -110,17 +112,18 @@
                     $("[data-desc^='" + SiblingElementNumber + "']").each(function(i, Descendant)
                     {
                         Descendant.setAttribute("data-checked", false);
+                        Descendant.parentNode.setAttribute("data-checked", false);
                         Descendant.checked = false;
-                        Descendant.parentNode.style.backgroundColor = 'white';
+                        //Descendant.parentNode.style.backgroundColor = 'white';
 
                         //only change these for checkboxes, not text inputs
                         if(Descendant.getAttribute("type") != "text")
                         {
-                            Descendant.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
-                            Descendant.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 0px rgb(255, 255, 255) !important';
+                            //Descendant.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
+                            //Descendant.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 0px rgb(255, 255, 255) !important';
                         }
 
-                        Descendant.parentNode.style.borderColor = 'var(--lightgrayblue)';
+                        //Descendant.parentNode.style.borderColor = 'var(--lightgrayblue)';
 
                         var DescendantElementNumber = Descendant.getAttribute("data-desc");
 
@@ -172,11 +175,12 @@
         $("[data-desc^='" + ClickedElementNumber + "']").each(function(i, Descendant)
         {
             Descendant.setAttribute("data-checked", false);
+            Descendant.parentNode.setAttribute("data-checked", false);
             Descendant.checked = false;
-            Descendant.parentNode.style.backgroundColor = 'white';
-            Descendant.parentNode.style.borderColor = 'var(--lightgrayblue)';
-            Descendant.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
-            Descendant.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 0px rgb(255, 255, 255) !important';
+            // Descendant.parentNode.style.backgroundColor = 'white';
+            // Descendant.parentNode.style.borderColor = 'var(--lightgrayblue)';
+            // Descendant.parentNode.getElementsByTagName("p")[0].style.color = 'var(--lightgrayblue)';
+            // Descendant.parentNode.getElementsByTagName("p")[0].style.textShadow = '0px 0px 0px rgb(255, 255, 255) !important';
 
             var DescendantLevel = Descendant.getAttribute("data-desc").replace(/[^0-9]/g, '').length;
 
